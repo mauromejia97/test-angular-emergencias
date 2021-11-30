@@ -1,0 +1,20 @@
+<div class="title">
+    <reusable-toolbar [section]="'Listado de licencias'" [title]="'tabla'"></reusable-toolbar>
+</div>
+
+<div class="container">
+    <ng-container *ngIf="dataLicence.length >0">
+        <reusable-table [data]="dataLicence" [columns]="columns">
+        </reusable-table>
+    </ng-container>
+    <ng-container *ngIf="dataLicence.length<1">
+        <div class="d-flex justify-content-center">
+            <div class="spinner-border " role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+
+        </div>
+       
+    </ng-container>
+
+</div>

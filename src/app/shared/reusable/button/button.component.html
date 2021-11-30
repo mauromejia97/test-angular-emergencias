@@ -1,0 +1,4 @@
+<button *ngIf="data.gcbaLicenseStatus=='REJECTED'" type="button"
+class="btn btn-outline-success" (click)="switchState(data)">{{title1}}</button>
+<button *ngIf="data.gcbaLicenseStatus=='ENTERED'" type="button" class="btn btn-outline-danger"
+(click)="switchState(data)">{{title2}}</button>

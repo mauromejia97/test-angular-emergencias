@@ -1,0 +1,56 @@
+<div class="modal-header">
+    <h4 class="modal-title">DETALLE DE LICENCIA : {{detalle.id}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+
+    <ul class="list-group list-group-flush "></ul>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>Solicitud:</strong></p> {{detalle.id}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>Nombre:</strong></p> {{detalle.user.name}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>Apellido:</strong></p> {{detalle.user.surname}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>ID HR:</strong></p> {{detalle.user.id}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>CUIL:</strong></p> {{detalle.user.cuil}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>LICENCIA:</strong></p> {{detalle.licenseTypesGroup.description}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>UNI.ORG:</strong></p> {{detalle.organizationalUnits[0].descriptionOU}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>CARGO:</strong></p> {{detalle.jobSector.description}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>FECHA DE INICIO:</strong></p> {{detalle.initDate}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>FECHA DE FIN:</strong></p> {{detalle.endingDate}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>DIAG. MEDICO:</strong></p> {{detalle.medicDiagnostic.description}}
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>DICISION MEDICA:</strong></p>
+        <p *ngIf="detalle.medicalDecisions.length>=1; else elseblock">{{detalle.medicalDecisions}}</p>
+        <ng-template #elseblock><p class="list-inline-item">-</p></ng-template>
+    </li>
+    <li class="list-group-item list-inline">
+        <p class="list-inline-item"><strong>ESTADO:</strong></p> {{detalle.gcbaLicenseStatus}}
+    </li>
+</div>
+
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
